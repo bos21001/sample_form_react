@@ -41,7 +41,7 @@ function EmailInput() {
 function NoteInput() {
     return (
         <div className='mb-3'>
-            <label for='noteTextarea' className='form-label fw-semibold'>Example textarea</label>
+            <label for='noteTextarea' className='form-label fw-semibold'>Note</label>
             <textarea className='form-control shadow-sm' name='note' id='noteTextarea' rows='2'></textarea>
         </div>
     );
