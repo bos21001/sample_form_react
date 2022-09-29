@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import './style.css';
 import { Link, Routes, Route, useNavigate } from 'react-router-dom';
+import SubmittedPage from './SubmittedPage';
 
 function Title(props) {
     return (
@@ -29,7 +30,7 @@ function Form(props) {
         email: '',
         note: ''
     };
-    
+
     const [nickname, setNickname] = useState("");
     const [age, setAge] = useState("");
     const [email, setEmail] = useState("");
@@ -43,9 +44,9 @@ function Form(props) {
     const title = props.title;
 
     const handleSubmit = event => {
-        alert(nickname + " " + age + " " + email + " " + note);
+        const formInputs = [nickname, age, email, note]
         event.preventDefault();
-        navigate('/submitted');
+        navigate('/submitted', { state: { submittedInputs: formInputs }, replace: true });
     }
 
     return (
@@ -64,11 +65,11 @@ function Form(props) {
                     </InputForm>
 
                     <InputForm for='email' label='Email Adress'>
-                        <input type='email' value={email} ref={inputEmail} onChange={() => inputEmail.current.value} className='form-control shadow-sm' name='email' id='email' placeholder='name@example.com' />
+                        <input type='email' value={email} ref={inputEmail} onChange={() => setEmail(inputEmail.current.value)} className='form-control shadow-sm' name='email' id='email' placeholder='name@example.com' />
                     </InputForm>
 
                     <InputForm for='note' label='Note'>
-                        <textarea value={note} ref={inputNote} onChange={() => inputNote.current.value} className='form-control shadow-sm' name='note' id='note' rows='2'></textarea>
+                        <textarea value={note} ref={inputNote} onChange={() => setNote(inputNote.current.value)} className='form-control shadow-sm' name='note' id='note' rows='2'></textarea>
                     </InputForm>
 
                     <div className='text-center'>
@@ -100,8 +101,4 @@ export default function App() {
             </div>
         </div>
     );
-}
-
-function SubmittedPage() {
-    return <h2>Submitted!</h2>;
 }
