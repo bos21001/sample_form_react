@@ -1,13 +1,13 @@
 import React, { useState, useRef } from 'react';
 import './style.css';
-import { Link, Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import SubmittedPage from './SubmittedPage';
 
 function Title(props) {
     return (
         <div className='mb-3'>
-            <h4 class='card-title'>{props.title.title}</h4>
-            <h6 class='card-subtitle mb-2 text-muted'>{props.title.subtitle}</h6>
+            <h4 className='card-title'>{props.title.title}</h4>
+            <h6 className='card-subtitle mb-2 text-muted'>{props.title.subtitle}</h6>
         </div>
     )
 }
@@ -23,13 +23,6 @@ function InputForm(props) {
 
 function Form(props) {
     const navigate = useNavigate();
-
-    const state = {
-        nickname: '',
-        age: '',
-        email: '',
-        note: ''
-    };
 
     const [nickname, setNickname] = useState("");
     const [age, setAge] = useState("");
@@ -64,7 +57,7 @@ function Form(props) {
                         <input type='number' value={age} ref={inputAge} onChange={() => setAge(inputAge.current.value)} className='form-control shadow-sm' name='age' id='age' placeholder='23' required />
                     </InputForm>
 
-                    <InputForm for='email' label='Email Adress'>
+                    <InputForm for='email' label='Email Address'>
                         <input type='email' value={email} ref={inputEmail} onChange={() => setEmail(inputEmail.current.value)} className='form-control shadow-sm' name='email' id='email' placeholder='name@example.com' />
                     </InputForm>
 
@@ -78,7 +71,7 @@ function Form(props) {
 
                 </form>
             </div>
-            <div class="card-footer text-center">
+            <div className="card-footer text-center">
                 © 2022 - Christopher Mendes - Made with Bootstrap and React
             </div>
         </div>
