@@ -4,6 +4,11 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import SubmittedPage from './SubmittedPage';
 
 function Title(props) {
+    /**
+     * Returns title and subtitle to the card with bootstrap.
+     * @param {Array} title - With title and subtitle
+     * @return reactjs html
+     */
     return (
         <div className='mb-3'>
             <h4 className='card-title'>{props.title.title}</h4>
@@ -13,6 +18,11 @@ function Title(props) {
 }
 
 function InputForm(props) {
+    /**
+     * Returns the frame an Input must follow.
+     * @param {String} for - for: The reference to the input. label: The label to the input
+     * @return {String} reactjs html
+     */
     return (
         <div className='mb-3'>
             <label for={props.for} className='form-label fw-semibold'>{props.label}</label>
@@ -22,6 +32,11 @@ function InputForm(props) {
 }
 
 function Form(props) {
+    /**
+     * Returns the form within a bootstrap well-designed
+     * @param {String} title - tile (array): The title and subtitle
+     * @return {String} reactjs html form
+     */
     const navigate = useNavigate();
 
     const [nickname, setNickname] = useState("");
@@ -80,6 +95,9 @@ function Form(props) {
 }
 
 export default function App() {
+    /**
+     * @return {String} The main app
+     */
     const title = {
         title: 'Sample Form React',
         subtitle: 'Let me "know" you 😉'

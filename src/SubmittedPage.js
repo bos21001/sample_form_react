@@ -2,6 +2,9 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 
 export default function SubmittedPage() {
+    /**
+     * @return {React} The submmited page with the variables from app()
+     */
     const location = useLocation();
 
     const nickname = location.state.submittedInputs[0];
