@@ -24,7 +24,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 
 #### Watch the software demo bellow:
-[Software Demo Video](http://youtube.link.goes.here) #In progress yet
+[Software Demo Video](https://youtu.be/Nm9xekdtJ4I)
 
 # Web Pages
 
