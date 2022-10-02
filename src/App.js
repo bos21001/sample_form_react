@@ -39,7 +39,7 @@ function Form(props) {
     const handleSubmit = event => {
         const formInputs = [nickname, age, email, note]
         event.preventDefault();
-        navigate('/submitted', { state: { submittedInputs: formInputs }, replace: true });
+        navigate('/submitted', { state: { submittedInputs: formInputs }});
     }
 
     return (
