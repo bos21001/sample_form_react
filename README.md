@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to my basic sample form coded with ReactJS and use of Bootstrap! Additionally, I am using Conventional Commits for each commit.
 
-## Available Scripts
+I created this repository to demonstrate how ReactJS is powerful and simple. Also I plan to add features and colaborate with others as needed to improve this sample.
 
-In the project directory, you can run:
+### To run this application locally follow the steps bellow:
 
-### `npm start`
+1.   Clone the repository:
 
-Runs the app in the development mode.\
+    git clone https://github.com/bos21001/sample_form_react.git
+
+2. Install the dependencies:
+    
+    >`cd sample_form_react`\
+    `npm install`
+
+3. Run the app in the development mode:
+    
+    > `npm start`\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![](demonstration_install.gif)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Watch the software demo bellow:
+[Software Demo Video](http://youtube.link.goes.here) #In progress yet
 
-### `npm run build`
+# Web Pages
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+There are two pages within it. The `index` page displays the form itself and 4 for different inputs. This form is dynamically created by a function called Form. It makes life easier to create custom input fields.\
+The submit button in this page takes all the inputs and send to the `submitted` page to be displayed to the user what have been sent.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![](demonstration_web_pages.gif)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Development Environment
 
-### `npm run eject`
+- Frameworks:
+  - ReactJS v18.2.0
+  - Bootstrap v5.2
+- Library
+  - react-router-dom v6.4
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Useful Websites
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* [React](https://reactjs.org/)
+* [react-router-dom](https://github.com/remix-run/react-router/tree/main/packages/react-router-dom)
+* [Bootstrap](https://getbootstrap.com/)
+* [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+* This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Future Work
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Alocate the data in a simple database consuming an api
+* Allow the update and to delete the note
+* Redirect the user to index when attempt to go on `page.local/submitted`
