@@ -16,7 +16,7 @@ export default function SubmittedPage() {
         <div className='container p-0 card bg-light position-absolute top-50 start-50 translate-middle shadow-lg' style={{ "max-width": "40rem" }}>
             <div className='text-center'>
                 <h4>Thank You!</h4>
-                <h1 className="bi bi-check-circle-fill text-success"></h1>
+                <span className="bi bi-check-circle-fill text-success h1" />
                 <h5 className="text-secondary">Your data has been sent.</h5>
                 <h6 className="text-secondary">Checkout bellow what we received</h6>
             </div>

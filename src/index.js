@@ -6,15 +6,8 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const title = {
-    title: 'Sample Form React',
-    subtitle: 'Let me "know" you 😉'
-}
-
 root.render(
     <Router>
-        <App
-            title={title}
-        />
+        <App />
     </Router>
 );
