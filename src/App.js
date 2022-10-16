@@ -1,7 +1,9 @@
-import React, { useState, useRef } from 'react';
+import React, {useRef, useState} from 'react';
 import './style.css';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import {Route, Routes, useNavigate} from 'react-router-dom';
 import SubmittedPage from './SubmittedPage';
+import LogInApi from "./LoginApi";
+import GetAllSampleForms from "./GetAllSampleForms";
 
 function Title(props) {
     /**
@@ -31,6 +33,17 @@ function InputForm(props) {
     );
 }
 
+
+function FetchGetAllSampleForms(props) {
+    if (props.token !== "logging") {
+        return (GetAllSampleForms(props.token));
+    } else {
+        return (<div className="spinner-border position-absolute top-50 start-50" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div>);
+    }
+}
+
 function Form(props) {
     /**
      * Returns the form within a bootstrap well-designed
@@ -54,7 +67,7 @@ function Form(props) {
     const handleSubmit = event => {
         const formInputs = [nickname, age, email, note]
         event.preventDefault();
-        navigate('/submitted', { state: { submittedInputs: formInputs }});
+        navigate('/submitted', {state: {submittedInputs: formInputs}});
     }
 
     return (
@@ -62,26 +75,33 @@ function Form(props) {
             <div className='card-body'>
                 <form onSubmit={handleSubmit}>
 
-                    <Title title={title} />
+                    <Title title={title}/>
 
                     <InputForm for='nickname' label='Nickname'>
-                        <input type='text' value={nickname} ref={inputNickname} onChange={() => setNickname(inputNickname.current.value)} className='form-control shadow-sm' name='nickname' id='nickname' placeholder='Tito' required />
+                        <input type='text' value={nickname} ref={inputNickname}
+                               onChange={() => setNickname(inputNickname.current.value)}
+                               className='form-control shadow-sm' name='nickname' id='nickname' placeholder='Tito'
+                               required/>
                     </InputForm>
 
                     <InputForm for='age' label='Age'>
-                        <input type='number' value={age} ref={inputAge} onChange={() => setAge(inputAge.current.value)} className='form-control shadow-sm' name='age' id='age' placeholder='23' required />
+                        <input type='number' value={age} ref={inputAge} onChange={() => setAge(inputAge.current.value)}
+                               className='form-control shadow-sm' name='age' id='age' placeholder='23' required/>
                     </InputForm>
 
                     <InputForm for='email' label='Email Address'>
-                        <input type='email' value={email} ref={inputEmail} onChange={() => setEmail(inputEmail.current.value)} className='form-control shadow-sm' name='email' id='email' placeholder='name@example.com' />
+                        <input type='email' value={email} ref={inputEmail}
+                               onChange={() => setEmail(inputEmail.current.value)} className='form-control shadow-sm'
+                               name='email' id='email' placeholder='name@example.com'/>
                     </InputForm>
 
                     <InputForm for='note' label='Note'>
-                        <textarea value={note} ref={inputNote} onChange={() => setNote(inputNote.current.value)} className='form-control shadow-sm' name='note' id='note' rows='2'></textarea>
+                        <textarea value={note} ref={inputNote} onChange={() => setNote(inputNote.current.value)}
+                                  className='form-control shadow-sm' name='note' id='note' rows='2'></textarea>
                     </InputForm>
 
                     <div className='text-center'>
-                        <input type='submit' value='Submit' className='btn btn-dark shadow-sm' />
+                        <input type='submit' value='Submit' className='btn btn-dark shadow-sm'/>
                     </div>
 
                 </form>
@@ -102,12 +122,15 @@ export default function App() {
         title: 'Sample Form React',
         subtitle: 'Let me "know" you 😉'
     }
+
+    const access_token = LogInApi();
     return (
         <div>
             <div>
                 <Routes>
-                    <Route path="/submitted" element={<SubmittedPage />} />
-                    <Route path="/" element={<Form title={title} />} />
+                    <Route path="/submitted" element={<SubmittedPage/>}/>
+                    <Route path="/get-all" element={<FetchGetAllSampleForms token={access_token}/>}/>
+                    <Route path="/" element={<Form title={title}/>}/>
                 </Routes>
             </div>
         </div>
