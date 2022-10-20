@@ -27,7 +27,7 @@ function InputForm(props) {
      */
     return (
         <div className='mb-3'>
-            <label for={props.for} className='form-label fw-semibold'>{props.label}</label>
+            <label htmlFor={props.for} className='form-label fw-semibold'>{props.label}</label>
             {props.children}
         </div>
     );
@@ -128,7 +128,7 @@ export default function App() {
         <div>
             <div>
                 <Routes>
-                    <Route path="/submitted" element={<SubmittedPage/>}/>
+                    <Route path="/submitted" element={<SubmittedPage access_token={access_token}/>}/>
                     <Route path="/get-all" element={<FetchGetAllSampleForms token={access_token}/>}/>
                     <Route path="/" element={<Form title={title}/>}/>
                 </Routes>

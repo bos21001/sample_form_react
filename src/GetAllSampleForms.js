@@ -45,7 +45,7 @@ export default function GetAllSampleForms(access_token) {
         return (
             <div>
                 <div className='container p-0 card bg-light shadow-lg position-absolute top-50 start-50 translate-middle '>
-                    <div className="card-body mt-1" style={{'max-height': "500px", 'overflow-y': 'auto'}}>
+                    <div className="card-body mt-1" style={{'maxHeight': "500px", 'overflowY': 'auto'}}>
                         <blockquote className="blockquote mb-0">
                             {allSampleForms.data.map((data) => {
                                 return (
