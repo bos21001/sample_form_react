@@ -1,7 +1,18 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
+import CreateSampleForm from "./CreateSampleForm";
 
-export default function SubmittedPage() {
+function FetchGetAllSampleForms(props) {
+    if (props.token !== "logging") {
+        return (CreateSampleForm(props.token, props.data));
+    } else {
+        return (<div className="spinner-border position-absolute top-50 start-50" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div>);
+    }
+}
+
+export default function SubmittedPage(props) {
     /**
      * @return {React} The submmited page with the variables from app()
      */
