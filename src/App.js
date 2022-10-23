@@ -4,6 +4,7 @@ import {Route, Routes, useNavigate} from 'react-router-dom';
 import SubmittedPage from './SubmittedPage';
 import LogInApi from "./LoginApi";
 import GetAllSampleForms from "./GetAllSampleForms";
+import GetSampleForm from "./GetSampleForm";
 
 function Title(props) {
     /**
@@ -37,6 +38,16 @@ function InputForm(props) {
 function FetchGetAllSampleForms(props) {
     if (props.token !== "logging") {
         return (GetAllSampleForms(props.token));
+    } else {
+        return (<div className="spinner-border position-absolute top-50 start-50" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div>);
+    }
+}
+
+function FetchGetSampleForm(props) {
+    if (props.token !== "logging") {
+        return (GetSampleForm(props.token));
     } else {
         return (<div className="spinner-border position-absolute top-50 start-50" role="status">
             <span className="visually-hidden">Loading...</span>
@@ -129,7 +140,8 @@ export default function App() {
             <div>
                 <Routes>
                     <Route path="/submitted" element={<SubmittedPage access_token={access_token}/>}/>
-                    <Route path="/get-all" element={<FetchGetAllSampleForms token={access_token}/>}/>
+                    <Route path="/get-all-sample-form" element={<FetchGetAllSampleForms token={access_token}/>}/>
+                    <Route path="/get-sample-form" element={<FetchGetSampleForm token={access_token}/>}/>
                     <Route path="/" element={<Form title={title}/>}/>
                 </Routes>
             </div>
