@@ -5,6 +5,7 @@ import SubmittedPage from './SubmittedPage';
 import LogInApi from "./LoginApi";
 import GetAllSampleForms from "./GetAllSampleForms";
 import GetSampleForm from "./GetSampleForm";
+import DeleteSampleForm from "./DeleteSampleForm";
 
 function Title(props) {
     /**
@@ -48,6 +49,16 @@ function FetchGetAllSampleForms(props) {
 function FetchGetSampleForm(props) {
     if (props.token !== "logging") {
         return (GetSampleForm(props.token));
+    } else {
+        return (<div className="spinner-border position-absolute top-50 start-50" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div>);
+    }
+}
+
+function FetchDeleteSampleForm(props) {
+    if (props.token !== "logging") {
+        return (DeleteSampleForm(props.token));
     } else {
         return (<div className="spinner-border position-absolute top-50 start-50" role="status">
             <span className="visually-hidden">Loading...</span>
@@ -142,6 +153,7 @@ export default function App() {
                     <Route path="/submitted" element={<SubmittedPage access_token={access_token}/>}/>
                     <Route path="/get-all-sample-form" element={<FetchGetAllSampleForms token={access_token}/>}/>
                     <Route path="/get-sample-form" element={<FetchGetSampleForm token={access_token}/>}/>
+                    <Route path="/delete-sample-form" element={<FetchDeleteSampleForm token={access_token}/>}/>
                     <Route path="/" element={<Form title={title}/>}/>
                 </Routes>
             </div>
