@@ -6,6 +6,8 @@ import LogInApi from "./LoginApi";
 import GetAllSampleForms from "./GetAllSampleForms";
 import GetSampleForm from "./GetSampleForm";
 import DeleteSampleForm from "./DeleteSampleForm";
+import view_UpdateSampleForm from "./view_updateSampleForm";
+import UpdateSampleForm from "./UpdateSampleForm";
 
 function Title(props) {
     /**
@@ -59,6 +61,16 @@ function FetchGetSampleForm(props) {
 function FetchDeleteSampleForm(props) {
     if (props.token !== "logging") {
         return (DeleteSampleForm(props.token));
+    } else {
+        return (<div className="spinner-border position-absolute top-50 start-50" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div>);
+    }
+}
+
+function FetchUpdateSampleForm(props) {
+    if (props.token !== "logging") {
+        return (view_UpdateSampleForm(props.token));
     } else {
         return (<div className="spinner-border position-absolute top-50 start-50" role="status">
             <span className="visually-hidden">Loading...</span>
@@ -154,6 +166,8 @@ export default function App() {
                     <Route path="/get-all-sample-form" element={<FetchGetAllSampleForms token={access_token}/>}/>
                     <Route path="/get-sample-form" element={<FetchGetSampleForm token={access_token}/>}/>
                     <Route path="/delete-sample-form" element={<FetchDeleteSampleForm token={access_token}/>}/>
+                    <Route path="/update-sample-form" element={<FetchUpdateSampleForm token={access_token}/>}/>
+                    <Route path="/updated" element={<UpdateSampleForm/>}/>
                     <Route path="/" element={<Form title={title}/>}/>
                 </Routes>
             </div>

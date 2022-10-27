@@ -63,7 +63,12 @@ export default function GetAllSampleForms(access_token) {
                                             <small>{data.email}</small>
                                         </Link>
                                         <div className={"text-end"}>
-                                            <Link className={"text-danger"} to={{pathname: "/delete-sample-form", search: data.id}}>
+                                            <Link className={"text-dark pe-2"}
+                                                  to={{pathname: "/update-sample-form", search: `${data.id}?${data.nickname}?${data.age}?${data.email}?${data.note}`}}>
+                                                <i className="bi bi-pencil-fill"></i>
+                                            </Link>
+                                            <Link className={"text-danger"}
+                                                  to={{pathname: "/delete-sample-form", search: data.id}}>
                                                 <i className="bi bi-trash-fill"></i>
                                             </Link>
                                         </div>
