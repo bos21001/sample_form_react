@@ -62,6 +62,11 @@ export default function GetAllSampleForms(access_token) {
                                             <p className='mb-1'>{data.note}</p>
                                             <small>{data.email}</small>
                                         </Link>
+                                        <div className={"text-end"}>
+                                            <Link className={"text-danger"} to={{pathname: "/delete-sample-form", search: data.id}}>
+                                                <i className="bi bi-trash-fill"></i>
+                                            </Link>
+                                        </div>
                                     </div>
                                 );
                             })}

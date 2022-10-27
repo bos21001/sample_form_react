@@ -36,17 +36,16 @@ export default function DeleteSampleForm(access_token) {
     }, [])
 
     if (error) {
-        return (`Error: ${error.message}`);
+        return (window.location.assign("/get-all-sample-form"));
     } else if (!isLoaded) {
         sleep(550)
         return (<div className="spinner-border position-absolute top-50 start-50" role="status">
             <span className="visually-hidden">Loading...</span>
         </div>);
     } else {
+        console.log(sampleForm);
         return(
-            <div>
-                <p>Deleted! {sampleForm}</p>
-            </div>
+            window.location.assign("/get-all-sample-form")
         );
 
     }
