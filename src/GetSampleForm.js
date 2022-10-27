@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 
 function sleep(milliseconds) {
     const date = Date.now();
@@ -49,7 +50,8 @@ export default function GetSampleForm(access_token) {
                     className='container p-0 card bg-light position-absolute top-50 start-50 translate-middle shadow-lg'
                     style={{"maxWidth": "40rem"}}>
                     <div className="card-body mt-1" style={{'maxHeight': "500px", 'overflowY': 'auto'}}>
-                        <h6 className='text-center text-muted'><span className='fw-bold'>Created at:</span> {sampleForm.data.created_at}</h6>
+                        <h6 className='text-center text-muted'><span
+                            className='fw-bold'>Created at:</span> {sampleForm.data.created_at}</h6>
                         <hr className="mt-0"></hr>
                         <p className='fw-light'><strong
                             className='fw-semibold'>Nickname:</strong> {sampleForm.data.nickname}</p>
@@ -59,6 +61,11 @@ export default function GetSampleForm(access_token) {
                         <p className='fw-light'><strong className='fw-semibold'>Note:</strong> {sampleForm.data.note}
                         </p>
                         <p className='text-muted'>Updated at: {sampleForm.data.updated_at}</p>
+                    </div>
+                    <div className={"text-end me-2"}>
+                        <Link className={"text-danger"} to={{pathname: "/delete-sample-form", search: sampleForm.data.id}}>
+                            <i className="bi bi-trash-fill"></i>
+                        </Link>
                     </div>
 
                     <div className="card-footer text-center">
