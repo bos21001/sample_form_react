@@ -57,46 +57,58 @@ export default function view_UpdateSampleForm(access_token) {
         window.location.assign("/get-all-sample-form");
     } else {
         return (
-            <div
-                className='container p-0 card bg-light position-absolute top-50 start-50 translate-middle shadow-lg'
-                style={{"maxWidth": "40rem"}}>
-                <div className='card-body'>
-                    <form onSubmit={handleSubmit}>
+            <div>
+                <nav aria-label="breadcrumb">
+                    <ol className="breadcrumb">
+                        <li className="breadcrumb-item active"><a href="/" className={"text-warning"}>Home</a></li>
+                        <li className="breadcrumb-item active"><a href="/get-all-sample-form" className={"text-warning"}>Get All</a></li>
+                        <li className="breadcrumb-item" aria-current="page">Update</li>
+                    </ol>
+                </nav>
+                <div
+                    className='container p-0 card bg-light position-absolute top-50 start-50 translate-middle shadow-lg'
+                    style={{"maxWidth": "40rem"}}>
+                    <div className='card-body'>
+                        <form onSubmit={handleSubmit}>
 
-                        <Title title={"Update data of: " + sample_form_nickname}/>
+                            <Title title={"Update data of: " + sample_form_nickname}/>
 
-                        <InputForm for='nickname' label='Nickname'>
-                            <input type='text' value={nickname} ref={inputNickname}
-                                   onChange={() => setNickname(inputNickname.current.value)}
-                                   className='form-control shadow-sm' name='nickname' id='nickname' placeholder={sample_form_nickname}/>
-                        </InputForm>
+                            <InputForm for='nickname' label='Nickname'>
+                                <input type='text' value={nickname} ref={inputNickname}
+                                       onChange={() => setNickname(inputNickname.current.value)}
+                                       className='form-control shadow-sm' name='nickname' id='nickname'
+                                       placeholder={sample_form_nickname}/>
+                            </InputForm>
 
-                        <InputForm for='age' label='Age'>
-                            <input type='number' value={age} ref={inputAge}
-                                   onChange={() => setAge(inputAge.current.value)}
-                                   className='form-control shadow-sm' name='age' id='age' placeholder={sample_form_age}/>
-                        </InputForm>
+                            <InputForm for='age' label='Age'>
+                                <input type='number' value={age} ref={inputAge}
+                                       onChange={() => setAge(inputAge.current.value)}
+                                       className='form-control shadow-sm' name='age' id='age'
+                                       placeholder={sample_form_age}/>
+                            </InputForm>
 
-                        <InputForm for='email' label='Email Address'>
-                            <input type='email' value={email} ref={inputEmail}
-                                   onChange={() => setEmail(inputEmail.current.value)}
-                                   className='form-control shadow-sm'
-                                   name='email' id='email' placeholder={sample_form_email}/>
-                        </InputForm>
+                            <InputForm for='email' label='Email Address'>
+                                <input type='email' value={email} ref={inputEmail}
+                                       onChange={() => setEmail(inputEmail.current.value)}
+                                       className='form-control shadow-sm'
+                                       name='email' id='email' placeholder={sample_form_email}/>
+                            </InputForm>
 
-                        <InputForm for='note' label='Note'>
+                            <InputForm for='note' label='Note'>
                         <textarea value={note} ref={inputNote} onChange={() => setNote(inputNote.current.value)}
-                                  className='form-control shadow-sm' name='note' id='note' rows='2' placeholder={sample_form_note}></textarea>
-                        </InputForm>
+                                  className='form-control shadow-sm' name='note' id='note' rows='2'
+                                  placeholder={sample_form_note}></textarea>
+                            </InputForm>
 
-                        <div className='text-center'>
-                            <input type='submit' value='Update' className='btn btn-warning shadow-sm'/>
-                        </div>
+                            <div className='text-center'>
+                                <input type='submit' value='Update' className='btn btn-warning shadow-sm'/>
+                            </div>
 
-                    </form>
-                </div>
-                <div className="card-footer text-center">
-                    © 2022 - Christopher Mendes - Made with Bootstrap and React
+                        </form>
+                    </div>
+                    <div className="card-footer text-center">
+                        © 2022 - Christopher Mendes - Made with Bootstrap and React
+                    </div>
                 </div>
             </div>
         );

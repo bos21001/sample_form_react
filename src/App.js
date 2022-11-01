@@ -105,43 +105,53 @@ function Form(props) {
     }
 
     return (
-        <div className='container p-0 card bg-light position-absolute top-50 start-50 translate-middle shadow-lg'>
-            <div className='card-body'>
-                <form onSubmit={handleSubmit}>
+        <div>
+            <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                    <li className="breadcrumb-item" aria-current="page">Home</li>
+                    <li className="breadcrumb-item active"><a href="/get-all-sample-form" className={"text-warning"}>Get All</a></li>
+                </ol>
+            </nav>
+            <div className='container p-0 card bg-light position-absolute top-50 start-50 translate-middle shadow-lg'>
+                <div className='card-body'>
+                    <form onSubmit={handleSubmit}>
 
-                    <Title title={title}/>
+                        <Title title={title}/>
 
-                    <InputForm for='nickname' label='Nickname'>
-                        <input type='text' value={nickname} ref={inputNickname}
-                               onChange={() => setNickname(inputNickname.current.value)}
-                               className='form-control shadow-sm' name='nickname' id='nickname' placeholder='Tito'
-                               required/>
-                    </InputForm>
+                        <InputForm for='nickname' label='Nickname'>
+                            <input type='text' value={nickname} ref={inputNickname}
+                                   onChange={() => setNickname(inputNickname.current.value)}
+                                   className='form-control shadow-sm' name='nickname' id='nickname' placeholder='Tito'
+                                   required/>
+                        </InputForm>
 
-                    <InputForm for='age' label='Age'>
-                        <input type='number' value={age} ref={inputAge} onChange={() => setAge(inputAge.current.value)}
-                               className='form-control shadow-sm' name='age' id='age' placeholder='23' required/>
-                    </InputForm>
+                        <InputForm for='age' label='Age'>
+                            <input type='number' value={age} ref={inputAge}
+                                   onChange={() => setAge(inputAge.current.value)}
+                                   className='form-control shadow-sm' name='age' id='age' placeholder='23' required/>
+                        </InputForm>
 
-                    <InputForm for='email' label='Email Address'>
-                        <input type='email' value={email} ref={inputEmail}
-                               onChange={() => setEmail(inputEmail.current.value)} className='form-control shadow-sm'
-                               name='email' id='email' placeholder='name@example.com'/>
-                    </InputForm>
+                        <InputForm for='email' label='Email Address'>
+                            <input type='email' value={email} ref={inputEmail}
+                                   onChange={() => setEmail(inputEmail.current.value)}
+                                   className='form-control shadow-sm'
+                                   name='email' id='email' placeholder='name@example.com'/>
+                        </InputForm>
 
-                    <InputForm for='note' label='Note'>
+                        <InputForm for='note' label='Note'>
                         <textarea value={note} ref={inputNote} onChange={() => setNote(inputNote.current.value)}
                                   className='form-control shadow-sm' name='note' id='note' rows='2'></textarea>
-                    </InputForm>
+                        </InputForm>
 
-                    <div className='text-center'>
-                        <input type='submit' value='Submit' className='btn btn-dark shadow-sm'/>
-                    </div>
+                        <div className='text-center'>
+                            <input type='submit' value='Submit' className='btn btn-dark shadow-sm'/>
+                        </div>
 
-                </form>
-            </div>
-            <div className="card-footer text-center">
-                © 2022 - Christopher Mendes - Made with Bootstrap and React
+                    </form>
+                </div>
+                <div className="card-footer text-center">
+                    © 2022 - Christopher Mendes - Made with Bootstrap and React
+                </div>
             </div>
         </div>
 

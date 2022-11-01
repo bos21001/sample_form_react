@@ -45,6 +45,12 @@ export default function GetAllSampleForms(access_token) {
     } else {
         return (
             <div>
+                <nav aria-label="breadcrumb">
+                    <ol className="breadcrumb">
+                        <li className="breadcrumb-item active"><a href="/" className={"text-warning"}>Home</a></li>
+                        <li className="breadcrumb-item" aria-current="page">Get All</li>
+                    </ol>
+                </nav>
                 <div
                     className='container p-0 card bg-light shadow-lg position-absolute top-50 start-50 translate-middle '>
                     <div className="card-body mt-1" style={{'maxHeight': "500px", 'overflowY': 'auto'}}>
@@ -64,7 +70,10 @@ export default function GetAllSampleForms(access_token) {
                                         </Link>
                                         <div className={"text-end"}>
                                             <Link className={"text-dark pe-2"}
-                                                  to={{pathname: "/update-sample-form", search: `${data.id}?${data.nickname}?${data.age}?${data.email}?${data.note}`}}>
+                                                  to={{
+                                                      pathname: "/update-sample-form",
+                                                      search: `${data.id}?${data.nickname}?${data.age}?${data.email}?${data.note}`
+                                                  }}>
                                                 <i className="bi bi-pencil-fill"></i>
                                             </Link>
                                             <Link className={"text-danger"}
