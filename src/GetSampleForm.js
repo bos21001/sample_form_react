@@ -61,9 +61,17 @@ export default function GetSampleForm(access_token) {
                         <p className='fw-light'><strong className='fw-semibold'>Note:</strong> {sampleForm.data.note}
                         </p>
                         <p className='text-muted'>Updated at: {sampleForm.data.updated_at}</p>
-                    </div>Test
+                    </div>
                     <div className={"text-end me-2"}>
-                        <Link className={"text-danger"} to={{pathname: "/delete-sample-form", search: sampleForm.data.id}}>
+                        <Link className={"text-dark pe-2"}
+                              to={{
+                                  pathname: "/update-sample-form",
+                                  search: `${sampleForm.data.id}?${sampleForm.data.nickname}?${sampleForm.data.age}?${sampleForm.data.email}?$sampleForm.{data.note}`
+                              }}>
+                            <i className="bi bi-pencil-fill"></i>
+                        </Link>
+                        <Link className={"text-danger"}
+                              to={{pathname: "/delete-sample-form", search: sampleForm.data.id}}>
                             <i className="bi bi-trash-fill"></i>
                         </Link>
                     </div>
