@@ -1,7 +1,13 @@
-import React, { useState, useRef } from 'react';
+import React, {useRef, useState} from 'react';
 import './style.css';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import {Route, Routes, useNavigate} from 'react-router-dom';
 import SubmittedPage from './SubmittedPage';
+import LogInApi from "./LoginApi";
+import GetAllSampleForms from "./GetAllSampleForms";
+import GetSampleForm from "./GetSampleForm";
+import DeleteSampleForm from "./DeleteSampleForm";
+import view_UpdateSampleForm from "./view_updateSampleForm";
+import UpdateSampleForm from "./UpdateSampleForm";
 
 function Title(props) {
     /**
@@ -25,10 +31,51 @@ function InputForm(props) {
      */
     return (
         <div className='mb-3'>
-            <label for={props.for} className='form-label fw-semibold'>{props.label}</label>
+            <label htmlFor={props.for} className='form-label fw-semibold'>{props.label}</label>
             {props.children}
         </div>
     );
+}
+
+
+function FetchGetAllSampleForms(props) {
+    if (props.token !== "logging") {
+        return (GetAllSampleForms(props.token));
+    } else {
+        return (<div className="spinner-border position-absolute top-50 start-50" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div>);
+    }
+}
+
+function FetchGetSampleForm(props) {
+    if (props.token !== "logging") {
+        return (GetSampleForm(props.token));
+    } else {
+        return (<div className="spinner-border position-absolute top-50 start-50" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div>);
+    }
+}
+
+function FetchDeleteSampleForm(props) {
+    if (props.token !== "logging") {
+        return (DeleteSampleForm(props.token));
+    } else {
+        return (<div className="spinner-border position-absolute top-50 start-50" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div>);
+    }
+}
+
+function FetchUpdateSampleForm(props) {
+    if (props.token !== "logging") {
+        return (view_UpdateSampleForm(props.token));
+    } else {
+        return (<div className="spinner-border position-absolute top-50 start-50" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div>);
+    }
 }
 
 function Form(props) {
@@ -54,40 +101,57 @@ function Form(props) {
     const handleSubmit = event => {
         const formInputs = [nickname, age, email, note]
         event.preventDefault();
-        navigate('/submitted', { state: { submittedInputs: formInputs }});
+        navigate('/submitted', {state: {submittedInputs: formInputs}});
     }
 
     return (
-        <div className='container p-0 card bg-light position-absolute top-50 start-50 translate-middle shadow-lg'>
-            <div className='card-body'>
-                <form onSubmit={handleSubmit}>
+        <div>
+            <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                    <li className="breadcrumb-item" aria-current="page">Home</li>
+                    <li className="breadcrumb-item active"><a href="/get-all-sample-form" className={"text-warning"}>Get All</a></li>
+                </ol>
+            </nav>
+            <div className='container p-0 card bg-light position-absolute top-50 start-50 translate-middle shadow-lg'>
+                <div className='card-body'>
+                    <form onSubmit={handleSubmit}>
 
-                    <Title title={title} />
+                        <Title title={title}/>
 
-                    <InputForm for='nickname' label='Nickname'>
-                        <input type='text' value={nickname} ref={inputNickname} onChange={() => setNickname(inputNickname.current.value)} className='form-control shadow-sm' name='nickname' id='nickname' placeholder='Tito' required />
-                    </InputForm>
+                        <InputForm for='nickname' label='Nickname'>
+                            <input type='text' value={nickname} ref={inputNickname}
+                                   onChange={() => setNickname(inputNickname.current.value)}
+                                   className='form-control shadow-sm' name='nickname' id='nickname' placeholder='Tito'
+                                   required/>
+                        </InputForm>
 
-                    <InputForm for='age' label='Age'>
-                        <input type='number' value={age} ref={inputAge} onChange={() => setAge(inputAge.current.value)} className='form-control shadow-sm' name='age' id='age' placeholder='23' required />
-                    </InputForm>
+                        <InputForm for='age' label='Age'>
+                            <input type='number' value={age} ref={inputAge}
+                                   onChange={() => setAge(inputAge.current.value)}
+                                   className='form-control shadow-sm' name='age' id='age' placeholder='23' required/>
+                        </InputForm>
 
-                    <InputForm for='email' label='Email Address'>
-                        <input type='email' value={email} ref={inputEmail} onChange={() => setEmail(inputEmail.current.value)} className='form-control shadow-sm' name='email' id='email' placeholder='name@example.com' />
-                    </InputForm>
+                        <InputForm for='email' label='Email Address'>
+                            <input type='email' value={email} ref={inputEmail}
+                                   onChange={() => setEmail(inputEmail.current.value)}
+                                   className='form-control shadow-sm'
+                                   name='email' id='email' placeholder='name@example.com'/>
+                        </InputForm>
 
-                    <InputForm for='note' label='Note'>
-                        <textarea value={note} ref={inputNote} onChange={() => setNote(inputNote.current.value)} className='form-control shadow-sm' name='note' id='note' rows='2'></textarea>
-                    </InputForm>
+                        <InputForm for='note' label='Note'>
+                        <textarea value={note} ref={inputNote} onChange={() => setNote(inputNote.current.value)}
+                                  className='form-control shadow-sm' name='note' id='note' rows='2'></textarea>
+                        </InputForm>
 
-                    <div className='text-center'>
-                        <input type='submit' value='Submit' className='btn btn-dark shadow-sm' />
-                    </div>
+                        <div className='text-center'>
+                            <input type='submit' value='Submit' className='btn btn-dark shadow-sm'/>
+                        </div>
 
-                </form>
-            </div>
-            <div className="card-footer text-center">
-                © 2022 - Christopher Mendes - Made with Bootstrap and React
+                    </form>
+                </div>
+                <div className="card-footer text-center">
+                    © 2022 - Christopher Mendes - Made with Bootstrap and React
+                </div>
             </div>
         </div>
 
@@ -102,12 +166,19 @@ export default function App() {
         title: 'Sample Form React',
         subtitle: 'Let me "know" you 😉'
     }
+
+    const access_token = LogInApi();
     return (
         <div>
             <div>
                 <Routes>
-                    <Route path="/submitted" element={<SubmittedPage />} />
-                    <Route path="/" element={<Form title={title} />} />
+                    <Route path="/submitted" element={<SubmittedPage access_token={access_token}/>}/>
+                    <Route path="/get-all-sample-form" element={<FetchGetAllSampleForms token={access_token}/>}/>
+                    <Route path="/get-sample-form" element={<FetchGetSampleForm token={access_token}/>}/>
+                    <Route path="/delete-sample-form" element={<FetchDeleteSampleForm token={access_token}/>}/>
+                    <Route path="/update-sample-form" element={<FetchUpdateSampleForm token={access_token}/>}/>
+                    <Route path="/updated" element={<UpdateSampleForm/>}/>
+                    <Route path="/" element={<Form title={title}/>}/>
                 </Routes>
             </div>
         </div>
