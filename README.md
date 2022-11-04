@@ -4,21 +4,33 @@ Welcome to my basic sample form coded with ReactJS and use of Bootstrap! Additio
 
 I created this repository to demonstrate how ReactJS is powerful and simple. Also I plan to add features and colaborate with others as needed to improve this sample.
 
-### To run this application locally follow the steps bellow:
+### Getting Started:
 
-1.   Clone the repository:
+1. Follow the **Getting Started** step-by-setp of the [react_form_integration](https://github.com/bos21001/sample_form_integration#getting-started) repository:
 
+
+2. Clone the repository in the same directory as **laradock** and **sample_form_integration** directories are:
+
+    ```
     git clone https://github.com/bos21001/sample_form_react.git
+    ```
 
-2. Install the dependencies:
+3. Install the dependencies:
     
-    >`cd sample_form_react`\
-    `npm install`
+    ```
+    cd sample_form_react
+    ```
 
-3. Run the app in the development mode:
+    ```
+    npm install
+    ```
+
+4. Run the app in the development mode:
     
-    > `npm start`\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    ```
+    npm start
+    ```
+>Open [http://localhost:3000](http://localhost:3000) (sometimes it changes depending on your port 3000 is in use) to view it in your browser.
 
 ![](demonstration_install.gif)
 
